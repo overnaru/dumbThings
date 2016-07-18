@@ -1,15 +1,32 @@
 import React, { Component, PropTypes } from 'react';
+import FadeCarousel from './FadeCarousel';
+import MyNavbar from './MyNavbar';
+import Features from './Features';
+import Waypoint from 'react-waypoint';
 
 export default class Landing extends Component {
-  render() {
 
-    const  DivStyle = {
-    opacity: '0.5',
-    backgroundColor: 'rgb(0, 168, 133)'
-};
+  constructor(props) {
+    super(props);
+    this.state = { change: 'false' };
+ }
+
+ _setNavStyle(bool) {
+this.setState({ change: bool });
+}
+  render() {
     return (
-      <div style={DivStyle}>
-          <h1>hello world</h1>
+      <div >
+          <MyNavbar changeNav={this.state.change} />
+          <FadeCarousel />
+          <Features />
+          <Waypoint
+            onEnter={this._setNavStyle.bind(this, 'true')}
+            onLeave={this._setNavStyle.bind(this, 'false')}
+            threshold={0}
+          />
+          <Features />
+
       </div>
     );
   }

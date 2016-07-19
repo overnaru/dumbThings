@@ -3,6 +3,7 @@ import FadeCarousel from './FadeCarousel';
 import MyNavbar from './MyNavbar';
 import Features from './Features';
 import Waypoint from 'react-waypoint';
+import Works from './Works';
 
 export default class Landing extends Component {
 
@@ -25,7 +26,7 @@ this.setState({ change: bool });
             onLeave={this._setNavStyle.bind(this, 'false')}
             threshold={0}
           />
-          <Features />
+          <Works />
 
       </div>
     );
